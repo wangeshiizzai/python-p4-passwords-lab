@@ -10,10 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
-db = SQLAlchemy()
+db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-db.init_app(app)
-
 bcrypt = Bcrypt(app)
-
 api = Api(app)
